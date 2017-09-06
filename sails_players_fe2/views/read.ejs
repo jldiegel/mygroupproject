@@ -1,3 +1,5 @@
+
+
 <ol class="breadcrumb">
     <li class="active">Home</a></li>
 </ol>
@@ -25,13 +27,13 @@
     </tr>
   </thead>
   <tbody>
-  <% if(typeof contact != "undefined" && cotact.length > 0){ %>
-    <% contact.forEach(function(contact){ %>
+  <% if(typeof contacts != "undefined" && contacts.length > 0){ %>
+    <% contacts.forEach(function(contact){ %>
       <tr>
-        <td><%= contact.firstName %></td>
-        <td><%= contact.lastName %></td>
-        <td><%= contact.title %></td>
-        <td><%= contact.position %></td>
+        <td><%= contact.first_name %></td>
+        // <td><%= contact.lastName %></td>
+        // <td><%= contact.title %></td>
+        // <td><%= contact.position %></td>
       </tr>
     <% }) %>
   <% } %>
