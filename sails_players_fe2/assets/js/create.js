@@ -51,39 +51,40 @@
         },
 
         person_co: {
-          required: true,
-          minlength: 2
+          // required: true,
+          // minlength: 2
         },
 
         address_street: {
-          required: true,
-          minlength: 2
+          // required: true,
+          // minlength: 2
         },
         address_city: {
-          required: true,
-          minlength: 2
+          // // required: true,
+          // maxlength: 20
         },
         address_state: {
-          required: true,
+          // required: true,
           minlength: 2
         },
         address_zip: {
-          required: true,
-          minlength: 2
+          // required: true,
+          minlength: 5
         },
         address_type: {
-          required: true,
-          minlength: 2
+          // required: true,
+          // minlength: 2
         },
 
         phone_number: {
           // dateISO: true
-          required: true
+          // required: true,
+          phoneUS: true
         },
 
         phone_type: {
-          required: true,
-          number: true
+          // required: true
+
         }
 
 
