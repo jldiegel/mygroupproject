@@ -36,7 +36,7 @@
 
       $('#id').selectpicker({
           liveSearch: true,
-          header: "Choose Player",
+          header: "Choose Contact",
           title: "Select"
       });
 

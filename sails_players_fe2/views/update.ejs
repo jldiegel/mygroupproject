@@ -1,56 +1,100 @@
 <ol class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li class="active">Player</a></li>
+  <li><a href="/">Home</a></li>
+  <li class="active">Contact</a>
+  </li>
 </ol>
 
 <br/>
 <%- partial ('partials/statusmessage.ejs') %>
 
-<form action="#" method="">
-  <div class="form-group">
-    <label for="id">SELECT A PLAYER TO UPDATE</label><br/>
-    <select id="id" name="id">
-    <% if(typeof players != "undefined" && players.length > 0){ %>
-      <% players.forEach(function(player){ %>
-        <option value="<%= player.id %>">
-          <%= player.firstName + " " +  player.lastName %>
+  <form action="#" method="">
+    <div class="form-group">
+      <label for="id">SELECT A CONTACT TO UPDATE</label><br/>
+      <select id="id" name="id">
+    <% if(typeof contacts != "undefined" && contacts.length > 0){ %>
+      <% contacts.forEach(function(contact){ %>
+        <option value="<%= contact.id %>">
+          <%= contact.firstName + " " +  contact.lastName %>
         </option>
       <% }) %>
     <% } %>
     </select>
-  </div>
-</form>
+    </div>
+  </form>
 
-<h2>Update Player</h2>
-<form action="/update" method="POST" class="form-horizontal" id="updatePlayerForm">
-  <input type="hidden" name="id" id="id" value="">
-  <div class="form-group">
-    <label for="firstName" class="col-sm-2 control-label">First Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+  <legend>Update contact</legend>
+  <form action="/update" method="POST" class="form-horizontal" id="updateContactForm">
+    <div class="form-group">
+      <label for="person_title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="person_title" name="person_title" placeholder="Title" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="lastName" class="col-sm-2 control-label">Last Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="lastName" name="lastName"  placeholder="Last Name" required>
+    <div class="form-group">
+      <label for="firstName" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="number" class="col-sm-2 control-label">Number</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control" id="number" name="number" placeholder="Number (##)" required>
+    <div class="form-group">
+      <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="gpa" class="col-sm-2 control-label">Position</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="posiotn" name="position" placeholder="Position (QB, WR, RB, TE, G, T, C, DL, DE, LB, CB, S)">
+
+    <div class="form-group">
+      <label for="company" class="col-sm-2 control-label">Company</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="company" name="company" placeholder="Company" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Update Player</button>
+    <h3>Address</h3>
+    <div class="form-group">
+      <label for="street" class="col-sm-2 control-label">Street</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="street" name="street" placeholder="Company" required>
+      </div>
     </div>
-  </div>
-</form>
+
+    <div class="form-group">
+      <label for="city" class="col-sm-2 control-label">City</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="state" class="col-sm-2 control-label">State</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="state" name="state" placeholder="State" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="zip_code" class="col-sm-2 control-label">Zip Code</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Zip Code" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number" class="col-sm-2 control-label">Phone Number</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Phone Number" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_type" class="col-sm-2 control-label">Type</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phone_type" name="phone_type" placeholder="Home" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Update Contact</button>
+      </div>
+    </div>
+  </form>

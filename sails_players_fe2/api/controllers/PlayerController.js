@@ -9,6 +9,12 @@ var Client = require('node-rest-client').Client;
 var client = new Client();
 var endpoint = "http://localhost:1337/player"
 
+// const fakeData = [{
+//   firstName: "Jeramiah",
+//   lastName: "d",
+//
+// }]
+
 module.exports = {
 
   /**
@@ -44,7 +50,7 @@ module.exports = {
    * `StudentController.read()`
    */
   read: function (req, res) {
-
+    // return res.view('read', {players: fakeData})
     client.get(endpoint, function (data, response) {
         return res.view('read', {players: data});
     }).on('error', function (err) {

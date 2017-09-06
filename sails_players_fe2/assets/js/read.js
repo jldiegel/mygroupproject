@@ -35,7 +35,7 @@
    $(function(){
 
      $(document).ready(function(){
-       $('#playerTable').DataTable({
+       $('#contactTable').DataTable({
          dom: 'Bfrtip',
          buttons: [
            'copy', 'excel', 'pdf', 'csv', 'print'

@@ -40,75 +40,107 @@
  *
  */
 
- (function(){
+(function() {
 
-   $(function(){
+  $(function() {
 
-      let currentPlayer
+    let currentContact
 
-     $("#updatePlayerForm").validate({
+    $("#updateContactForm").validate({
 
-       errorClass: "text-danger",
+      errorClass: "text-danger",
 
-       rules:  {
+      rules: {
 
-         firstName: {
-           required: true,
-           minlength: 2
-         },
+        first_name: {
+          required: true,
+          minlength: 2
+        },
 
-         lastName:  {
-           required: true,
-           minlength: 2
-         },
+        last_name: {
+          required: true,
+          minlength: 2
+        },
 
-         start_date:  {
-           dateISO: true
-         },
+        person_title: {
+          required: true,
+          minlength: 2
+        },
 
-         gpa: {
-           required: true,
-           number: true
-         }
+        person_co: {
+          required: true,
+          minlength: 2
+        },
 
-       },
+        address_street: {
+          required: true,
+          minlength: 2
+        },
 
-       messages: {
+        address_city: {
+          required: true,
+          minlength: 2
+        },
+        address_state: {
+          required: true,
+          minlength: 2
+        },
+        address_zip: {
+          required: true,
+          minlength: 2
+        },
+        address_type: {
+          required: true,
+          minlength: 2
+        },
 
-         firstName:  {
-           required: "You must enter a first name"
-         },
+        phone_number: {
+          dateISO: true
+        },
 
-         lastName:  {
-           required: "You must enter a last name"
-         },
+        phone_type: {
+          required: true,
+          number: true
+        }
 
-       }
+      },
 
-     });
+      messages: {
 
-     $("#updatePlayerForm :input").prop("disabled", true);
+        firstName: {
+          required: "You must enter a first name"
+        },
+
+        lastName: {
+          required: "You must enter a last name"
+        },
+
+      }
+
+    });
+
+    $("#updateContactForm :input").prop("disabled", true);
 
 
 
-     $('#id').on('change', function(){
-        console.log($(this))
-        console.log($(this).find("option:selected"))
-        console.log($(this).find("option:selected").val());
-        currentPlayer = $(this).find("option:selected").val();
-        $.get("http://localhost:1337/player/"+currentPlayer, function(data){
-            $.each(data, function(key, val){
-              let el=$('[name="'+key+'"]');
-              let type = el.attr('type');
-              el.val(val);
-            })
+    $('#id').on('change', function() {
+      console.log($(this))
+      console.log($(this).find("option:selected"))
+      console.log($(this).find("option:selected").val());
+      currentContact = $(this).find("option:selected").val();
+      $.get("http://localhost:1337/player/" + currentContact, function(data) {
+        $.each(data, function(key, val) {
+          let el = $('[name="' + key + '"]');
+          let type = el.attr('type');
+          el.val(val);
         })
-        $("#updatePlayerForm :input").prop("disabled", false);
       })
+      $("#updateContactForm :input").prop("disabled", false);
+    })
 
 
 
 
-   })
+  })
 
- })();
+})();

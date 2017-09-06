@@ -25,52 +25,77 @@
  */
 
 
-(function(){
+(function() {
 
-  $(function(){
+  $(function() {
 
-    $("#addStudentForm").validate({
+    $("#addContactForm").validate({
 
       errorClass: "text-danger",
 
-      rules:  {
+      rules: {
 
         first_name: {
           required: true,
           minlength: 2
         },
 
-        last_name:  {
+        last_name: {
           required: true,
           minlength: 2
         },
 
-        start_date:  {
-          dateISO: true
+        person_title: {
+          required: true,
+          minlength: 2
         },
 
-        gpa: {
+        person_co: {
+          required: true,
+          minlength: 2
+        },
+
+        address_street: {
+          required: true,
+          minlength: 2
+        },
+        address_city: {
+          required: true,
+          minlength: 2
+        },
+        address_state: {
+          required: true,
+          minlength: 2
+        },
+        address_zip: {
+          required: true,
+          minlength: 2
+        },
+        address_type: {
+          required: true,
+          minlength: 2
+        },
+
+        phone_number: {
+          // dateISO: true
+          required: true
+        },
+
+        phone_type: {
           required: true,
           number: true
-        },
-
-        major_id:  {
-          required: true,
-        },
-
-        sat: {
-          required: true
         }
+
 
       },
 
       messages: {
 
-        first_name:  {
+        first_name: {
           required: "You must enter a first name"
         },
 
-        last_name:  {
+        last_name: {
           required: "You must enter a last name"
         },
 

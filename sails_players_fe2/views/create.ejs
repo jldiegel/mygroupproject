@@ -1,40 +1,163 @@
 <ol class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li class="active">Add Player</a></li>
+  <li><a href="/">Home</a></li>
+  <li class="active">Add Contact</a>
+  </li>
 </ol>
 
 <br/>
 <%- partial ('partials/statusmessage.ejs') %>
 
-<h2>Add Player</h2>
-<form action="/create" method="POST" class="form-horizontal" id="addStudentForm">
-  <div class="form-group">
-    <label for="firstName" class="col-sm-2 control-label">First Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+  <legend>Add Contact</legend>
+
+
+  <form action="/create" method="POST" class="form-horizontal" id="addContactForm">
+
+    <div class="form-group">
+      <label for="person_title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="person_title" name="person_title" placeholder="Title" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="lastName" class="col-sm-2 control-label">Last Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="lastName" name="lastName"  placeholder="Last Name" required>
+    <div class="form-group">
+      <label for="firstName" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="number" class="col-sm-2 control-label">Number</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="number" name="number" placeholder="Number (##)" required>
+    <div class="form-group">
+      <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="position" class="col-sm-2 control-label">Position</label></label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="position" name="position" placeholder="Position (QB, WR, RB, TE, G, T, C, DL, DE, LB, CB, S)" required>
+
+    <div class="form-group">
+      <label for="company" class="col-sm-2 control-label">Company</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="company" name="company" placeholder="Company" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Add Player</button>
+    <h4>Address</h4>
+    <div class="form-group">
+      <label for="street" class="col-sm-2 control-label">Street</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="street" name="street" placeholder="Company" required>
+      </div>
     </div>
-  </div>
-</form>
+
+    <div class="form-group">
+      <label for="city" class="col-sm-2 control-label">City</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="state" class="col-sm-2 control-label">State</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="state" name="state" placeholder="State" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="state" class="col-sm-2 control-label">State</label>
+      <div class="col-sm-10">
+        <select class="form-control" id="state" name="state">
+    			<option value="">Select state</option>
+    			<option value="AK">Alaska</option>
+    			<option value="AL">Alabama</option>
+    			<option value="AR">Arkansas</option>
+    			<option value="AZ">Arizona</option>
+    			<option value="CA">California</option>
+    			<option value="CO">Colorado</option>
+    			<option value="CT">Connecticut</option>
+    			<option value="DC">District of Columbia</option>
+    			<option value="DE">Delaware</option>
+    			<option value="FL">Florida</option>
+    			<option value="GA">Georgia</option>
+    			<option value="HI">Hawaii</option>
+    			<option value="IA">Iowa</option>
+    			<option value="ID">Idaho</option>
+    			<option value="IL">Illinois</option>
+    			<option value="IN">Indiana</option>
+    			<option value="KS">Kansas</option>
+    			<option value="KY">Kentucky</option>
+    			<option value="LA">Louisiana</option>
+    			<option value="MA">Massachusetts</option>
+    			<option value="MD">Maryland</option>
+    			<option value="ME">Maine</option>
+    			<option value="MI">Michigan</option>
+    			<option value="MN">Minnesota</option>
+    			<option value="MO">Missouri</option>
+    			<option value="MS">Mississippi</option>
+    			<option value="MT">Montana</option>
+    			<option value="NC">North Carolina</option>
+    			<option value="ND">North Dakota</option>
+    			<option value="NE">Nebraska</option>
+    			<option value="NH">New Hampshire</option>
+    			<option value="NJ">New Jersey</option>
+    			<option value="NM">New Mexico</option>
+    			<option value="NV">Nevada</option>
+    			<option value="NY">New York</option>
+    			<option value="OH">Ohio</option>
+    			<option value="OK">Oklahoma</option>
+    			<option value="OR">Oregon</option>
+    			<option value="PA">Pennsylvania</option>
+    			<option value="PR">Puerto Rico</option>
+    			<option value="RI">Rhode Island</option>
+    			<option value="SC">South Carolina</option>
+    			<option value="SD">South Dakota</option>
+    			<option value="TN">Tennessee</option>
+    			<option value="TX">Texas</option>
+    			<option value="UT">Utah</option>
+    			<option value="VA">Virginia</option>
+    			<option value="VT">Vermont</option>
+    			<option value="WA">Washington</option>
+    			<option value="WI">Wisconsin</option>
+    			<option value="WV">West Virginia</option>
+    			<option value="WY">Wyoming</option>
+		    </select>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="zip_code" class="col-sm-2 control-label">Zip Code</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Zip Code" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number" class="col-sm-2 control-label">Phone Number</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Phone Number" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_type" class="col-sm-2 control-label">Type</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phone_type" name="phone_type" placeholder="Home" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Type</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+          <option>Home</option>
+          <option>Mobile</option>
+          <option>Work</option>
+          <option>Other</option>
+
+        </select>
+        <br /><br />
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Add Contact</button>
+        </div>
+      </div>
+  </form>
