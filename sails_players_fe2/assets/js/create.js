@@ -36,56 +36,62 @@
       rules: {
 
         first_name: {
+          type: 'string',
           required: true,
           minlength: 2
         },
 
         last_name: {
+          type: 'string',
           required: true,
           minlength: 2
         },
 
         person_title: {
+          type: 'string',
           required: true,
           minlength: 2
         },
 
         person_co: {
-          // required: true,
-          // minlength: 2
-        },
-
-        address_street: {
-          // required: true,
-          // minlength: 2
-        },
-        address_city: {
-          // // required: true,
-          // maxlength: 20
-        },
-        address_state: {
-          // required: true,
+          type: 'string',
+          required: true,
           minlength: 2
         },
-        address_zip: {
-          // required: true,
-          minlength: 5
-        },
-        address_type: {
-          // required: true,
-          // minlength: 2
-        },
 
-        phone_number: {
-          // dateISO: true
-          // required: true,
-          phoneUS: true
-        },
-
-        phone_type: {
-          // required: true
-
-        }
+        // address_street: {
+        //   type: 'string',
+        //   required: true,
+        //   minlength: 2
+        // },
+        //
+        // address_city: {
+        //   type: 'string',
+        //   required: true,
+        //   maxlength: 20
+        // },
+        //
+        // address_state: {
+        //   required: true,
+        // },
+        //
+        // address_zip: {
+        //   type: 'string',
+        //   minlength: 5
+        // },
+        //
+        // address_type: {
+        //   required: true
+        // },
+        //
+        // phone_number: {
+        //   required: true,
+        //   phoneUS: true
+        // },
+        //
+        // phone_type: {
+        //   required: true
+        // }
 
 
       },
