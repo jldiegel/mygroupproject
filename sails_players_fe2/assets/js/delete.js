@@ -32,7 +32,7 @@
    $(function(){
 
 
-      $("option").addClass("glyphicon glyphicon-pawn")
+      // $("option").addClass("glyphicon glyphicon-pawn")
 
       $('#id').selectpicker({
           liveSearch: true,

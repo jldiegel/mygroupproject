@@ -17,7 +17,7 @@
       <% if(typeof contacts != "undefined" && contacts.length > 0){ %>
         <% contacts.forEach(function(contact){ %>
           <option value="<%= contact.id %>">
-            <%= contact.firstName + " " + contact.lastName %>
+            <%= contact.first_name + " " + contact.last_name %>
           </option>
         <% }) %>
       <% } %>
