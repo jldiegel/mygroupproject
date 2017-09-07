@@ -7,7 +7,7 @@
 
 var Client = require('node-rest-client').Client;
 var client = new Client();
-var endpoint = "https://rolodex-of-terror.herokuapp.com/cards"
+var endpoint = "http://rolodex-of-terror.herokuapp.com/cards"
 
 
 
@@ -30,6 +30,18 @@ module.exports = {
         return res.view('read', {error: { message: "There was an error getting the contacts"}});
     });
   },
+
+
+  send: function(req, res) {
+
+    client.get(`${endpoint}/${req.params.id}`, function (data, response) {
+        return res.send(data);
+    }).on('error', function (err) {
+        return res.send({error: { message: "There was an error getting the contacts"}});
+    });
+  },
+
+
 
   /**
    * `StudentController.create()`
