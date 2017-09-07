@@ -61,18 +61,17 @@
 
         // address_street: {
         //   type: 'string',
-        //   required: true,
         //   minlength: 2
         // },
         //
         // address_city: {
         //   type: 'string',
-        //   required: true,
         //   maxlength: 20
         // },
         //
         // address_state: {
-        //   required: true,
+        //  type: 'string',
+        //  minlength: 2
         // },
         //
         // address_zip: {
@@ -81,18 +80,16 @@
         // },
         //
         // address_type: {
-        //   required: true
+        //   type: 'string'
         // },
         //
         // phone_number: {
-        //   required: true,
         //   phoneUS: true
         // },
         //
         // phone_type: {
-        //   required: true
+        //   type: 'string'
         // }
-
 
       },
 
@@ -109,8 +106,6 @@
       }
 
     });
-
-
 
 
   })
