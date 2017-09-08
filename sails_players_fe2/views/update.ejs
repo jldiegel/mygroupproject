@@ -9,8 +9,8 @@
 
   <form action="#" method="">
     <div class="form-group">
-      <label for="id">SELECT A CONTACT TO UPDATE</label><br/>
-      <select id="id" name="id">
+      <label for="selectContactId">SELECT A CONTACT TO UPDATE</label><br/>
+      <select id="selectContactId" name="selectContactId">
     <% if(typeof contacts != "undefined" && contacts.length > 0){ %>
       <% contacts.forEach(function(contact){ %>
         <option value="<%= contact.id %>">

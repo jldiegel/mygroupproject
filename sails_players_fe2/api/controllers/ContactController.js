@@ -10,8 +10,6 @@ var client = new Client();
 var endpoint = "http://rolodex-of-terror.herokuapp.com/cards"
 
 
-
-
 module.exports = {
 
 
@@ -25,6 +23,31 @@ module.exports = {
   read: function(req, res) {
 
     client.get(endpoint, function (data, response) {
+      // Loop through all of the contacts to check if
+      // there are missing addresses for the table
+      for (let contact of data) {
+        // if the addresses array is not there or empty,
+        // create a "fake address" for empty strings in
+        // the table
+        if (contact.addresses === undefined || contact.addresses.length === 0) {
+          contact.addresses = [{
+            address_type: '',
+            address_street: '',
+            address_city: '',
+            address_state: '',
+            address_zip: ''
+          }];
+        }
+        // if the phone numbers array is not there or empty,
+        // create a "fake phone number" for empty strings in
+        // the table
+        if (contact.phoneNumbers === undefined || contact.phoneNumbers.length === 0) {
+          contact.phoneNumbers = [{
+            phone_number: '',
+            phone_type: ''
+          }];
+        }
+      }
         return res.view('read', {contacts: data});
     }).on('error', function (err) {
         return res.view('read', {error: { message: "There was an error getting the contacts"}});
@@ -35,7 +58,7 @@ module.exports = {
   send: function(req, res) {
 
     client.get(`${endpoint}/${req.params.id}`, function (data, response) {
-        return res.send(data);
+        return res.send(stub);
     }).on('error', function (err) {
         return res.send({error: { message: "There was an error getting the contacts"}});
     });
@@ -45,7 +68,7 @@ module.exports = {
     sails.log(req.params.id)
     client.get(`${endpoint}/${req.params.id}/addresses`, function (data, response) {
       sails.log(data)
-        return res.redirect('/');
+        return res.send(data);
     }).on('error', function (err) {
         return res.send({error: { message: "There was an error getting the contacts"}});
     });
