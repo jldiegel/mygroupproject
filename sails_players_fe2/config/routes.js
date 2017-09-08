@@ -43,6 +43,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/create':'ContactController.create', //got to StudentController.js (in api folder), and call the create method. The create method returns the view, which is the views file create.ejs (html). Then the create.js file in the assets/js folder is what is used to manupulate the dom for create.ejs
+  '/send/:id':  'ContactController.send',
   '/'      :'ContactController.read',
   '/update':'ContactController.update',
   '/delete':'ContactController.delete'

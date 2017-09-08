@@ -53,51 +53,51 @@
       rules: {
 
         first_name: {
-          type: 'string',
+
           required: true,
           minlength: 2
         },
 
         last_name: {
-          type: 'string',
+
           required: true,
           minlength: 2
         },
 
         person_title: {
-          type: 'string',
+
           required: true,
           minlength: 2
         },
 
         person_co: {
-          type: 'string',
+
           required: true,
           minlength: 2
         },
 
         // address_street: {
-        //   type: 'string',
+
         //   minlength: 2
         // },
         //
         // address_city: {
-        //   type: 'string',
+
         //   maxlength: 20
         // },
         //
         // address_state: {
-        //  type: 'string',
+
         //  minlength: 2
         // },
         //
         // address_zip: {
-        //   type: 'string',
+
         //   minlength: 5
         // },
         //
         // address_type: {
-        //   type: 'string'
+
         // },
         //
         // phone_number: {
@@ -105,7 +105,7 @@
         // },
         //
         // phone_type: {
-        //   type: 'string'
+
         // }
 
       },
@@ -129,11 +129,11 @@
 
 
     $('#id').on('change', function() {
-      console.log($(this))
-      console.log($(this).find("option:selected"))
+      // console.log($(this))
+      // console.log($(this).find("option:selected"))
       console.log($(this).find("option:selected").val());
       currentContact = $(this).find("option:selected").val();
-      $.get("https://rolodex-of-terror.herokuapp.com/cards/" + currentContact, function(data) {
+      $.get("/send/" + currentContact, function(data) {
         $.each(data, function(key, val) {
           let el = $('[name="' + key + '"]');
           let type = el.attr('type');
