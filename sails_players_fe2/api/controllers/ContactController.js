@@ -41,6 +41,14 @@ module.exports = {
     });
   },
 
+  sendAddresses: function(req, res) {
+
+    client.get(`${endpoint}/${req.params.id}/addresses`, function (data, response) {
+        return res.send(data);
+    }).on('error', function (err) {
+        return res.send({error: { message: "There was an error getting the contacts"}});
+    });
+  },
 
 
   /**

@@ -4,34 +4,42 @@
 
   $(function() {
 
-    $("#addContactForm").validate({
+    $("#addAddressForm").validate({
 
       errorClass: "text-danger",
 
       rules: {
 
-        first_name: {
+        address_street: {
 
-          required: true,
           minlength: 2
         },
 
-        last_name: {
+        address_city: {
 
-          required: true,
-          minlength: 2
+          maxlength: 20
         },
 
-        person_title: {
+        address_state: {
 
-          required: true,
-          minlength: 2
+         minlength: 2
         },
 
-        person_co: {
+        address_zip: {
 
-          required: true,
-          minlength: 2
+          minlength: 5
+        },
+
+        address_type: {
+
+        },
+
+        phone_number: {
+          phoneUS: true
+        },
+
+        phone_type: {
+
         }
 
       },
