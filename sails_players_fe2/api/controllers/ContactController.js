@@ -42,9 +42,10 @@ module.exports = {
   },
 
   sendAddresses: function(req, res) {
-
+    sails.log(req.params.id)
     client.get(`${endpoint}/${req.params.id}/addresses`, function (data, response) {
-        return res.send(data);
+      sails.log(data)
+        return res.redirect('/');
     }).on('error', function (err) {
         return res.send({error: { message: "There was an error getting the contacts"}});
     });
