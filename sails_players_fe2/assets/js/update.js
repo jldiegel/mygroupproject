@@ -4,6 +4,8 @@
 
     let currentContact
 
+
+
     $("#updateContactForm").validate({
 
       errorClass: "text-danger",
@@ -50,9 +52,11 @@
 
     });
 
+
+
     $("#updateContactForm :input").prop("disabled", true);
-
-
+    $("#updateAddressForm :input").prop("disabled", true);
+    $("#updatePhoneForm :input").prop("disabled", true);
 
 
     $("#updateAddressForm").validate({
@@ -97,49 +101,57 @@
 
     });
 
-    $("#updateContactForm :input").prop("disabled", true);
 
-      $('#selectContactId').selectpicker({
-          liveSearch: true,
-          header: "Choose Contact",
-          title: "Select"
-      });
+
+    $('#selectContactId').selectpicker({
+        liveSearch: true,
+        header: "Choose Contact",
+        title: "Select"
+    });
+
 
     $('#selectContactId').on('change', function() {
-      // console.log($(this))
-      // console.log($(this).find("option:selected"))
+
+
       console.log($(this).find("option:selected").val());
       currentContact = $(this).find("option:selected").val();
-      $.get(`/send/${currentContact}/addresses`, function(data) {
+      $.get(`/send/${currentContact}`, function(data) {
         $.each(data, function(key, val) {
           let el = $('[name="' + key + '"]');
           let type = el.attr('type');
           el.val(val);
+          console.log(data);
+
+          $("#updateContactForm :input").prop("disabled", false);
         })
-      })
-      $("#updateContactForm :input").prop("disabled", false);
-    })
 
-    $('#selectContactId').on('change', function() {
-      // console.log($(this))
-      // console.log($(this).find("option:selected"))
-      console.log($(this).find("option:selected").val());
-      currentContact = $(this).find("option:selected").val();
-      $('#updateAddressForm').attr('action', `/send/${currentContact}/addresses`)
+        const contactObj = data;
 
-      $.get(`/send/${currentContact}/addresses`, function(data) {
+        const addressObj = data.addresses[0];
+        $('#address_type').val(addressObj.address_type);
+        $('#address_street').val(addressObj.address_street);
+        $('#address_city').val(addressObj.address_city);
+        $('#address_state').val(addressObj.address_state);
+        $('#address_zip').val(addressObj.address_zip);
 
-        $.each(data, function(key, val) {
-          let el = $('[name="' + key + '"]');
-          let type = el.attr('type');
-          el.val(val);
-        })
+        addressUpdateEndpoint = `/cards/${contactObj.id}/addresses/${addressObj.id}`
+        $('#updateAddressForm').attr('action', addressUpdateEndpoint);
+        $('#addressId').val(addressObj.id)
+
+
+        const phoneObj = data.phoneNumbers[0]
+        $('#phone_type').val(phoneObj.phone_type);
+        $('#phone_number').val(phoneObj.phone_number);
+
+        phoneUpdateEndpoint = `/cards/${contactObj.id}/phones/${phoneObj.id}`
+        $('#updatePhoneForm').attr('action', phoneUpdateEndpoint);
+        $('#phoneId').val(phoneObj.id)
+
       })
 
       $("#updateAddressForm :input").prop("disabled", false);
+      $("#updatePhoneForm :input").prop("disabled", false);
     })
-
-
 
   })
 
